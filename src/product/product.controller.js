@@ -85,7 +85,7 @@ router.patch("/:id", async (req, res) => {
         const productId = req.params.id;
         const productData = req.body;
 
-        await editProductById(productId, productData);
+        const product = await editProductById(productId, productData);
 
         res.send({
             data: product,
@@ -95,5 +95,6 @@ router.patch("/:id", async (req, res) => {
         res.status(400).send(error.message)
     }
 });
+
 
 export default router;
